@@ -55,23 +55,6 @@ jobs:
       - name: Create installer
         run: iscc installer.iss
 
-      - name: Sign installer with self-signed certificate (for testing)
-        run: |
-          # 创建自签名证书用于测试
-          $cert = New-SelfSignedCertificate -Type CodeSigningCert -Subject "CN=WallGap Open Source" -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsage DigitalSignature
-          
-          # 导出证书
-          $password = ConvertTo-SecureString -String "temp123" -Force -AsPlainText
-          Export-PfxCertificate -Cert $cert -FilePath "temp_cert.pfx" -Password $password
-          
-          # 签名安装程序
-          $installer = Get-ChildItem "installer_output\WallGap-Setup-*.exe" | Select-Object -First 1
-          signtool sign /f temp_cert.pfx /p temp123 /tr http://timestamp.digicert.com /td sha256 /fd sha256 "$($installer.FullName)"
-          
-          # 验证签名
-          signtool verify /pa "$($installer.FullName)"
-        shell: pwsh
-
       - name: Upload installer to GitHub Release
         uses: softprops/action-gh-release@v2
         with:

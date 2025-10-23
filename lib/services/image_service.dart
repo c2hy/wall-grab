@@ -3,22 +3,22 @@ import 'package:file_picker/file_picker.dart';
 
 class ImageService {
   
-  /// 获取Windows主题缓存目录路径
+  /// Get Windows theme cache directory path
   static String getThemeCachePath() {
     final userProfile = Platform.environment['USERPROFILE'];
     if (userProfile == null) {
-      throw Exception('无法获取用户配置文件路径');
+      throw Exception('Unable to get user profile path');
     }
     return '$userProfile\\AppData\\Roaming\\Microsoft\\Windows\\Themes\\CachedFiles';
   }
   
-  /// 读取主题缓存目录中的所有图片文件
+  /// Read all image files from theme cache directory
   static Future<List<File>> getThemeImages() async {
     try {
       final cacheDir = Directory(getThemeCachePath());
       
       if (!await cacheDir.exists()) {
-        // 主题缓存目录不存在
+        // Theme cache directory does not exist
         return [];
       }
       
@@ -40,33 +40,33 @@ class ImageService {
       
       return imageFiles;
     } catch (e) {
-      // 读取主题图片时出错
+      // Error reading theme images
       return [];
     }
   }
   
-  /// 获取桌面目录路径
+  /// Get desktop directory path
   static Future<String> getDesktopPath() async {
     try {
       final userProfile = Platform.environment['USERPROFILE'];
       if (userProfile == null) {
-        throw Exception('无法获取用户配置文件路径');
+        throw Exception('Unable to get user profile path');
       }
       return '$userProfile\\Desktop';
     } catch (e) {
-      // 获取桌面路径时出错
+      // Error getting desktop path
       rethrow;
     }
   }
   
-  /// 使用文件选择器保存图片
+  /// Save image using file picker
   static Future<bool> saveImageWithDialog(File sourceFile) async {
     try {
       final fileName = sourceFile.path.split('\\').last;
       
-      // 打开文件保存对话框
+      // Open file save dialog
       final result = await FilePicker.platform.saveFile(
-        dialogTitle: '保存图片',
+        dialogTitle: 'Save Image',
         fileName: fileName,
         type: FileType.custom,
         allowedExtensions: ['jpg', 'jpeg', 'png', 'bmp', 'gif'],
@@ -74,19 +74,19 @@ class ImageService {
       );
       
       if (result != null) {
-        // 复制文件到选择的位置
+        // Copy file to selected location
         await sourceFile.copy(result);
         return true;
       }
       
       return false;
     } catch (e) {
-      // 保存图片时出错
+      // Error saving image
       return false;
     }
   }
   
-  /// 检查文件是否为有效的图片文件
+  /// Check if file is a valid image file
   static bool isValidImageFile(File file) {
     try {
       final extension = file.path.toLowerCase();
@@ -100,7 +100,7 @@ class ImageService {
     }
   }
   
-  /// 获取文件大小（人类可读格式）
+  /// Get file size (human readable format)
   static String getFileSizeString(int bytes) {
     if (bytes < 1024) {
       return '$bytes B';

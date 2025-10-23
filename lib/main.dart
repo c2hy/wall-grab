@@ -3,16 +3,16 @@ import 'dart:io';
 import 'services/image_service.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const WallGapApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class WallGapApp extends StatelessWidget {
+  const WallGapApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Windows 主题图片管理器',
+      title: 'WallGap',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -44,7 +44,7 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
   Future<void> _loadImages() async {
     setState(() {
       _isLoading = true;
-      _statusMessage = '正在加载图片...';
+      _statusMessage = 'Loading images...';
     });
 
     try {
@@ -54,13 +54,13 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
         _currentIndex = images.isNotEmpty ? 0 : -1;
         _isLoading = false;
         _statusMessage = images.isNotEmpty 
-            ? '找到 ${images.length} 张图片' 
-            : '未找到图片文件';
+            ? 'Found ${images.length} images' 
+            : 'No image files found';
       });
     } catch (e) {
       setState(() {
         _isLoading = false;
-        _statusMessage = '加载图片失败: $e';
+        _statusMessage = 'Failed to load images: $e';
       });
     }
   }
@@ -76,7 +76,7 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
       if (success) {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('图片已保存'),
+            content: Text('Image saved'),
             backgroundColor: Colors.green,
             duration: Duration(seconds: 2),
           ),
@@ -84,7 +84,7 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
-            content: Text('保存已取消'),
+            content: Text('Save cancelled'),
             backgroundColor: Colors.orange,
             duration: Duration(seconds: 2),
           ),
@@ -95,7 +95,7 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
       
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('保存图片时出错: $e'),
+          content: Text('Error saving image: $e'),
           backgroundColor: Colors.red,
           duration: const Duration(seconds: 3),
         ),
@@ -125,7 +125,7 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
       backgroundColor: Colors.black,
       body: Stack(
         children: [
-          // 主图片显示区域
+          // Main image display area
           if (_isLoading)
             const Center(
               child: Column(
@@ -134,7 +134,7 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
                   CircularProgressIndicator(color: Colors.white),
                   SizedBox(height: 16),
                   Text(
-                    '正在加载图片...',
+                    'Loading images...',
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
                 ],
@@ -152,7 +152,7 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
                   ),
                   const SizedBox(height: 24),
                   const Text(
-                    '未找到图片文件',
+                    'No image files found',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 24,
@@ -161,7 +161,7 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
                   ),
                   const SizedBox(height: 8),
                   const Text(
-                    '请确保Windows主题缓存目录存在并包含图片文件',
+                    'Please ensure the Windows theme cache directory exists and contains image files',
                     style: TextStyle(
                       color: Colors.white54,
                       fontSize: 14,
@@ -172,7 +172,7 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
                   ElevatedButton.icon(
                     onPressed: _loadImages,
                     icon: const Icon(Icons.refresh),
-                    label: const Text('重新加载'),
+                    label: const Text('Reload'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white24,
                       foregroundColor: Colors.white,
@@ -199,7 +199,7 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
                           ),
                           SizedBox(height: 16),
                           Text(
-                            '无法加载图片',
+                            'Unable to load image',
                             style: TextStyle(
                               color: Colors.white54,
                               fontSize: 16,
@@ -213,7 +213,7 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
               ),
             ),
 
-          // 顶部状态栏
+          // Top status bar
           Positioned(
             top: 0,
             left: 0,
@@ -251,7 +251,7 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
             ),
           ),
 
-          // 右上角透明保存按钮
+          // Top-right transparent save button
           if (_images.isNotEmpty)
             Positioned(
               top: 16,
@@ -273,7 +273,7 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
                       color: Colors.white,
                       size: 24,
                     ),
-                    tooltip: '保存图片',
+                    tooltip: 'Save image',
                     style: IconButton.styleFrom(
                       padding: const EdgeInsets.all(12),
                     ),
@@ -282,7 +282,7 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
               ),
             ),
 
-          // 底部导航区域
+          // Bottom navigation area
           if (_images.length > 1)
             Positioned(
               bottom: 0,

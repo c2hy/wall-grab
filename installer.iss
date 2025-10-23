@@ -1,7 +1,10 @@
-; installer.iss — WallGap Windows 安装包脚本
+; installer.iss — WallGap Windows installer script
 #define MyAppName "WallGap"
 #define MyAppExeName "WallGap.exe"
 #define MyAppVersion GetEnv("APP_VERSION")
+#if MyAppVersion == ""
+  #define MyAppVersion "1.0.0"
+#endif
 
 [Setup]
 AppName={#MyAppName}
@@ -10,7 +13,7 @@ DefaultDirName={autopf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 OutputDir=installer_output
 OutputBaseFilename=WallGap-Setup-{#MyAppVersion}
-SetupIconFile=assets\app_icon.ico  ; 可选：替换为你的图标路径
+SetupIconFile=assets\app_icon.ico
 Compression=lzma2
 SolidCompression=yes
 PrivilegesRequired=lowest
@@ -23,7 +26,7 @@ Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"
 Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
 [Tasks]
-Name: desktopicon; Description: "创建桌面快捷方式"; GroupDescription: "附加任务:"; Flags: unchecked
+Name: desktopicon; Description: "Create desktop shortcut"; GroupDescription: "Additional tasks:"; Flags: unchecked
 
 [Run]
-Filename: "{app}\{#MyAppExeName}"; Description: "立即运行 WallGap"; Flags: postinstall nowait skipifsilent
+Filename: "{app}\{#MyAppExeName}"; Description: "Run WallGap now"; Flags: postinstall nowait skipifsilent

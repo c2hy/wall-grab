@@ -23,24 +23,10 @@ Since this is an open-source project, Windows may display security warnings. Thi
 
 #### 🛠️ How to safely continue installation?
 
-**Method 1: Through the security warning interface**
 1. When you see "Windows protected your PC"
 2. Click **"More info"**
 3. Click **"Run anyway"**
 4. Continue with normal installation
-
-**Method 2: Through file properties**
-1. Right-click the installer
-2. Select **"Properties"**
-3. In the "General" tab, check **"Unblock"**
-4. Click **"OK"**
-5. Run the installer again
-
-**Method 3: Through Windows Security Center**
-1. Open Windows Security Center
-2. Go to "Virus & threat protection"
-3. Click "Virus & threat protection settings"
-4. Add WallGap installation directory to "Exclusions"
 
 ## 🚀 User Guide
 

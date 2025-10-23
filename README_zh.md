@@ -2,6 +2,8 @@
 
 WallGap 是一款专门用于提取 Windows 聚焦壁纸的工具。
 
+**Read this in other languages: [English](README.md) | [中文](README_zh.md)**
+
 ## 📥 下载安装
 
 1. 访问 [GitHub Releases 页面](https://github.com/c2hy/wall-grab/releases)

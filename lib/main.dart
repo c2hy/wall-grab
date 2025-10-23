@@ -69,34 +69,14 @@ class _ImageViewerPageState extends State<ImageViewerPage> {
     if (_currentIndex < 0 || _currentIndex >= _images.length) return;
     
     try {
-      final success = await ImageService.saveImageWithDialog(_images[_currentIndex]);
-      
-      if (!mounted) return;
-      
-      if (success) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Image saved'),
-            backgroundColor: Colors.green,
-            duration: Duration(seconds: 2),
-          ),
-        );
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Save cancelled'),
-            backgroundColor: Colors.orange,
-            duration: Duration(seconds: 2),
-          ),
-        );
-      }
+      await ImageService.saveImageWithDialog(_images[_currentIndex]);
     } catch (e) {
       if (!mounted) return;
       
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Error saving image: $e'),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.transparent,
           duration: const Duration(seconds: 3),
         ),
       );

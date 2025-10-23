@@ -1,5 +1,5 @@
 name: wall_gap
-description: "A Flutter app to view and save Windows theme cache images."
+description: "WallGap - A Flutter app to view and save Windows theme cache images."
 publish_to: 'none'
 
 version: 1.0.0+1

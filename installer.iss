@@ -10,9 +10,7 @@
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 AppPublisher=WallGap
-AppPublisherURL=https://github.com/yourusername/wall-grab
-AppSupportURL=https://github.com/yourusername/wall-grab
-AppUpdatesURL=https://github.com/yourusername/wall-grab
+AppPublisherURL=https://github.com/c2hy/wall-grab
 DefaultDirName={userappdata}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
@@ -54,8 +52,9 @@ begin
   // 检查是否安装了 Visual C++ Redistributable
   if not RegKeyExists(HKEY_LOCAL_MACHINE, 'SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64') then
   begin
-    if MsgBox('This application requires Microsoft Visual C++ Redistributable.' + #13#10 + 
-              'Would you like to download it from Microsoft?', 
+    if MsgBox('WallGap requires Microsoft Visual C++ Redistributable to run.' + #13#10 + #13#10 +
+              'Would you like to download and install it now?' + #13#10 +
+              '(If already installed, please ignore this prompt)', 
               mbConfirmation, MB_YESNO) = IDYES then
     begin
       ShellExec('open', 

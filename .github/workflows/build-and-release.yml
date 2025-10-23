@@ -1,0 +1,49 @@
+# .github/workflows/build.yml
+name: Build Windows Installer
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  build-windows-installer:
+    name: Build WallGap Windows Installer
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set APP_VERSION from tag
+        run: echo "APP_VERSION=${GITHUB_REF#refs/tags/v}" >> $env:GITHUB_ENV
+        shell: pwsh
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Enable Windows desktop
+        run: flutter config --enable-windows-desktop
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Build Windows release
+        run: flutter build windows --release
+
+      - name: Install Inno Setup
+        run: |
+          choco install innosetup -y
+          echo "C:\Program Files (x86)\Inno Setup 6" >> $GITHUB_PATH
+
+      - name: Create installer
+        run: iscc installer.iss
+
+      - name: Upload installer to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: installer_output/WallGap-Setup-${{ env.APP_VERSION }}.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

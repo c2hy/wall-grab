@@ -6,6 +6,11 @@ on:
     tags:
       - "v*"
 
+# 添加必要的权限
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   build-windows-installer:
     name: Build WallGap Windows Installer
@@ -54,5 +59,18 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: installer_output/WallGap-Setup-*.exe
+          tag_name: ${{ github.ref_name }}
+          name: WallGap ${{ env.APP_VERSION }}
+          body: |
+            ## WallGap ${{ env.APP_VERSION }}
+            
+            ### 安装说明
+            1. 下载并运行 `WallGap-Setup-${{ env.APP_VERSION }}.exe`
+            2. 按照安装向导完成安装
+            3. 安装完成后即可使用 WallGap
+            
+            ### 更新内容
+            - 版本 ${{ env.APP_VERSION }} 发布
+            - 包含最新的功能改进和错误修复
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

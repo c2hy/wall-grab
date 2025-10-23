@@ -19,7 +19,7 @@ SolidCompression=yes
 PrivilegesRequired=lowest
 
 [Files]
-Source: "build\windows\runner\Release\*"; DestDir: "{app}"; Flags: recursesubdirs
+Source: "build\windows\x64\runner\Release\*"; DestDir: "{app}"; Flags: recursesubdirs
 
 [Icons]
 Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"

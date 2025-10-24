@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "WallGap" "\0"
-            VALUE "FileDescription", "WallGap - Windows theme cache image viewer" "\0"
+            VALUE "CompanyName", "WallGrap" "\0"
+            VALUE "FileDescription", "WallGrap - Windows Spotlight Wallpaper Download Tool" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "WallGap" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2025 WallGap. All rights reserved." "\0"
-            VALUE "OriginalFilename", "WallGap.exe" "\0"
-            VALUE "ProductName", "WallGap" "\0"
+            VALUE "InternalName", "WallGrap" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2025 WallGrap. All rights reserved." "\0"
+            VALUE "OriginalFilename", "WallGrap.exe" "\0"
+            VALUE "ProductName", "WallGrap" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

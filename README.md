@@ -1,15 +1,15 @@
-# WallGap
+# WallGrap
 
-WallGap is a specialized tool for extracting Windows Spotlight wallpapers.
+WallGrap is a specialized tool for downloading Windows Spotlight wallpapers.
 
 **Read this in other languages: [English](README.md) | [中文](README_zh.md)**
 
 ## 📥 Download & Install
 
 1. Visit [GitHub Releases page](https://github.com/c2hy/wall-grab)
-2. Download the latest version of `WallGap-Setup-x.x.x.exe` installer
+2. Download the latest version of `WallGrap-Setup-x.x.x.exe` installer
 3. Double-click to run the installer and follow the prompts to complete installation
-4. After installation, find the WallGap icon in the Start menu or desktop to launch the app
+4. After installation, find the WallGrap icon in the Start menu or desktop to launch the app
 
 ### ⚠️ Windows Security Warning Notice
 
@@ -32,7 +32,7 @@ Since this is an open-source project, Windows may display security warnings. Thi
 
 ### Quick Start
 
-1. **Launch App**: After running WallGap, the app will automatically scan Windows Spotlight wallpapers
+1. **Launch App**: After running WallGrap, the app will automatically scan and download Windows Spotlight wallpapers
 2. **Browse Images**: The app displays images in full-screen mode with mouse wheel zoom support
 3. **Navigate Images**: 
    - Use left/right arrow buttons to switch images

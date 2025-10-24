@@ -1,5 +1,5 @@
-name: wall_gap
-description: "WallGap - A Flutter app to view and save Windows theme cache images."
+name: wall_grap
+description: "WallGrap - Windows Spotlight Wallpaper Download Tool"
 publish_to: 'none'
 
 version: 1.0.0+1

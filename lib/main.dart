@@ -3,16 +3,16 @@ import 'dart:io';
 import 'services/image_service.dart';
 
 void main() {
-  runApp(const WallGapApp());
+  runApp(const WallGrapApp());
 }
 
-class WallGapApp extends StatelessWidget {
-  const WallGapApp({super.key});
+class WallGrapApp extends StatelessWidget {
+  const WallGrapApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'WallGap',
+      title: 'WallGrap',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,

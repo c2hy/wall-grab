@@ -1,6 +1,6 @@
-; installer.iss — WallGap Windows installer script
-#define MyAppName "WallGap"
-#define MyAppExeName "wall_gap.exe"
+; installer.iss — WallGrap Windows installer script
+#define MyAppName "WallGrap"
+#define MyAppExeName "wall_grap.exe"
 #define MyAppVersion GetEnv("APP_VERSION")
 #if MyAppVersion == ""
   #define MyAppVersion "1.0.0"
@@ -9,13 +9,13 @@
 [Setup]
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
-AppPublisher=WallGap
+AppPublisher=WallGrap
 AppPublisherURL=https://github.com/c2hy/wall-grab
 DefaultDirName={userappdata}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 AllowNoIcons=yes
 OutputDir=installer_output
-OutputBaseFilename=WallGap-Setup-{#MyAppVersion}
+OutputBaseFilename=WallGrap-Setup-{#MyAppVersion}
 SetupIconFile=assets\app_icon.ico
 Compression=lzma2
 SolidCompression=yes
@@ -52,7 +52,7 @@ begin
   // 检查是否安装了 Visual C++ Redistributable
   if not RegKeyExists(HKEY_LOCAL_MACHINE, 'SOFTWARE\Microsoft\VisualStudio\14.0\VC\Runtimes\x64') then
   begin
-    if MsgBox('WallGap requires Microsoft Visual C++ Redistributable to run.' + #13#10 + #13#10 +
+    if MsgBox('WallGrap requires Microsoft Visual C++ Redistributable to run.' + #13#10 + #13#10 +
               'Would you like to download and install it now?' + #13#10 +
               '(If already installed, please ignore this prompt)', 
               mbConfirmation, MB_YESNO) = IDYES then

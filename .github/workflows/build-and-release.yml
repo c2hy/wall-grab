@@ -64,10 +64,19 @@ jobs:
           body: |
             ## WallGrap ${{ env.APP_VERSION }}
             
+            ### Installation Instructions
+            1. Download and run `WallGrap-Setup-${{ env.APP_VERSION }}.exe`
+            2. Follow the installation wizard to complete setup
+            3. Launch WallGrap after installation
+            
             ### 安装说明
             1. 下载并运行 `WallGrap-Setup-${{ env.APP_VERSION }}.exe`
             2. 按照安装向导完成安装
             3. 安装完成后即可使用 WallGrap
+            
+            ### What's New
+            - Version ${{ env.APP_VERSION }} release
+            - Latest feature improvements and bug fixes
             
             ### 更新内容
             - 版本 ${{ env.APP_VERSION }} 发布

@@ -66,13 +66,15 @@ jobs:
             
             ### Installation Instructions
             1. Download and run `WallGrap-Setup-${{ env.APP_VERSION }}.exe`
-            2. Follow the installation wizard to complete setup
-            3. Launch WallGrap after installation
+            2. When Windows shows security warning, click "More info" then "Run anyway"
+            3. Follow the installation wizard to complete setup
+            4. Launch WallGrap after installation
             
             ### 安装说明
             1. 下载并运行 `WallGrap-Setup-${{ env.APP_VERSION }}.exe`
-            2. 按照安装向导完成安装
-            3. 安装完成后即可使用 WallGrap
+            2. 当 Windows 显示安全警告时，点击"更多信息"然后"仍要运行"
+            3. 按照安装向导完成安装
+            4. 安装完成后即可使用 WallGrap
             
             ### What's New
             - Version ${{ env.APP_VERSION }} release

@@ -6,7 +6,7 @@ WallGrap is a specialized tool for downloading Windows Spotlight wallpapers.
 
 ## 📥 Download & Install
 
-1. Visit [GitHub Releases page](https://github.com/c2hy/wall-grab)
+1. Visit [GitHub Releases page](https://github.com/c2hy/wall-grab/releases)
 2. Download the latest version of `WallGrap-Setup-x.x.x.exe` installer
 3. Double-click to run the installer and follow the prompts to complete installation
 4. After installation, find the WallGrap icon in the Start menu or desktop to launch the app
